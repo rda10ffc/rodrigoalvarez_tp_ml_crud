@@ -14,8 +14,9 @@ const controller = {
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))/* codificado en utf-8 */
 
 		//retorno de forma renderizada a products
-		return res.render('products',{
-			products,
+		return res.render('index',{
+			visited : products.filter(products => products.category === 'visited'), //filtro productos con la categoria visitado 
+			sale :  products.filter(products => products.category === 'in-sale'), // filtro productos con la categoria ofertas
 			toThousand
 		})
 	},
