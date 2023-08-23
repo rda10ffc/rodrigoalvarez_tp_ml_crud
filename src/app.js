@@ -25,11 +25,11 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
-const mainRouter = require('./routes/main'); // Rutas main
-const productsRouter = require('./routes/products'); // Rutas /products
+const mainRouter = require('./routes/main'); // enrutador maestro 
+const productsRouter = require('./routes/products'); // Rutas /products enrutador de productos
 
-app.use('/', mainRouter);
-app.use('/products', productsRouter);
+app.use('/', mainRouter);/* aplico main router */
+app.use('/products', productsRouter);/* aplico productsRouter  */
 
 
 
