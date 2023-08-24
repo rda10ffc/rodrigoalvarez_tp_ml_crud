@@ -21,8 +21,8 @@ router.get('/edit/:id', productsController.edit); /* editarme un producto, rende
 router.put('/update/:id', productsController.update); /* subir un producto nuevo, lleva put porque modifica */
 
 
-/*** ELIMINAME UN PRODUCTO***/ 
-router.delete('/:id', productsController.destroy); 
+/*** ELIMINAME UN PRODUCTO***/  
+router.delete('/delete/:id', productsController.destroy); 
 
 
 module.exports = router;
