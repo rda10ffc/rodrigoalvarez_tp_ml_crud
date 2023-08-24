@@ -51,7 +51,7 @@ const controller = {
 		const productsModify = products.filter(product => product.id !== +req.params.id )
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(productsModify,null,3),)
-
+		
 		return res.redirect('/products')
 	}
 };
