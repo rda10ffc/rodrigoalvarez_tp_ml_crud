@@ -9,8 +9,8 @@ const productsController = require('../controllers/productsController');
 router.get('/', productsController.index);/* traigo todo los productos del index, del product controller.index, que renderiza el index */ 
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/', productsController.create); /* traeme el formulario renderizado */
-router.post('/', productsController.store); /* enviame la informacion del formulario */
+router.get('/create', productsController.create); /* traeme el formulario renderizado */
+router.post('/create', productsController.store); /* enviame la informacion del formulario */
 
 
 /*** TRAEME UN PRODUCTO ***/ 
