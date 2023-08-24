@@ -14,7 +14,7 @@ router.post('/', productsController.store); /* enviame la informacion del formul
 
 
 /*** TRAEME UN PRODUCTO ***/ 
-router.get('/:id', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 /*** EDITA UN PRODUCTO ***/ 
 router.get('/edit/:id', productsController.edit); /* editarme un producto, renderizando */
