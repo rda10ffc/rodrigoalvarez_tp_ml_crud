@@ -10,11 +10,20 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		// Do the magic
+		return res.render('products',{
+			products,
+			toThousand
+		})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
+		const id = req.params.id //requiero el id que viene por url
+		const product = products.find(product => product.id === +id)/* recorro products y me devuelve el producto que tenga el mismo id que la constante id */
+		return res.render('detail',{
+			...product,//destructuracion de product
+			toThousand
+		})
 	},
 
 	// Create - Form to create
@@ -39,6 +48,11 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
+		const productsModify = products.filter(product => product.id !== +req.params.id )
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(productsModify,null,3),)
+
+		return res.redirect('/products')
 	}
 };
 
