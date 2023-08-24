@@ -22,6 +22,13 @@ const controller = {
 	},
 	search: (req, res) => {
 		// Do the magic
+		const keywords = req.query.keywords;
+		const results = products.filter(product => product.name.toLowerCase().includes(keywords.toLowerCase()))
+		res.render('results',{
+			results,
+			toThousand,
+			keywords
+		})
 	},
 };
 
