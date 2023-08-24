@@ -29,11 +29,28 @@ const controller = {
 	// Create - Form to create
 	create: (req, res) => {
 		// Do the magic
+		return res.render ('product-create-form')//renderizo la pagina de formulario
+
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
+		const {name, price, description, discount, category} = req.body;
+		const product = {
+			id : products[products.length -1].id + 1,//siguente id
+			name : name.trim(),
+			price : +price,//precio parseado
+			discount : +discount,//descuento parseado
+			category,
+			description : description.trim(),
+			image : null
+		}
+		products.push(product)
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,3),)
+
+		return res.redirect('/products')
 	},
 
 	// Update - Form to edit
